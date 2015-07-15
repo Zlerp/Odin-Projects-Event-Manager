@@ -13,6 +13,17 @@ contents = CSV.open "event_attendees.csv", headers: true, header_converters: :sy
 contents.each do |row|
   name = row[:first_name]
   zipcode = row[:zipcode]
+
+  # Fixing the Zip code
+  if zipcode === nil    #Checks to see if zipcode field is filled.
+    zipcode = "00000"
+  else
+    if zipcode.length < 5   #if zipcode is short, add 0s to the front.
+      zipcode = zipcode.rjust 5, "0"
+    else
+      zipcode = zipcode[0..4]   # if zipcode is long or 5 digits, make 5 digits.
+    end
+  end
   puts "#{name}\tzip: #{zipcode}"
 end
 

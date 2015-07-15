@@ -9,3 +9,4 @@ The Event Manager parses a CSV file with bad data and repairs it.
 - Parsing CSV data
 - `slicing` strings
 - `rjusting` strings 
+- creating/using methods
